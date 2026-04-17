@@ -1,0 +1,222 @@
+{
+  "project_name": "FocusFlow",
+  "theme_archetype": "Archetype 2: The Performance Pro (Dark Theme)",
+  "vibe": "Command-center focus, tactical minimalism, distraction-free precision.",
+  "colors": {
+    "background_primary": "#0A0A0A",
+    "background_secondary": "#171717",
+    "background_tertiary": "#262626",
+    "accent_primary": "#0066FF",
+    "accent_glow": "#00E5FF",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A3A3A3",
+    "text_disabled": "#525252",
+    "border": "#262626",
+    "border_focus": "#0066FF",
+    "success": "#10B981",
+    "error": "#EF4444"
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Outfit, System",
+      "body": "Manrope, System"
+    },
+    "scale": {
+      "h1": { "fontSize": 40, "fontWeight": "800", "letterSpacing": -1.5, "lineHeight": 48 },
+      "h2": { "fontSize": 32, "fontWeight": "700", "letterSpacing": -1.0, "lineHeight": 40 },
+      "h3": { "fontSize": 24, "fontWeight": "600", "letterSpacing": -0.5, "lineHeight": 32 },
+      "body_lg": { "fontSize": 18, "fontWeight": "500", "letterSpacing": 0, "lineHeight": 28 },
+      "body": { "fontSize": 16, "fontWeight": "400", "letterSpacing": 0, "lineHeight": 24 },
+      "label": { "fontSize": 14, "fontWeight": "600", "letterSpacing": 0.5, "lineHeight": 20 },
+      "overline": { "fontSize": 12, "fontWeight": "700", "letterSpacing": 2.0, "textTransform": "uppercase" },
+      "timer_display": { "fontSize": 72, "fontWeight": "300", "letterSpacing": -2.5 }
+    }
+  },
+  "spacing_system": {
+    "base_grid": 8,
+    "scale": {
+      "xs": 4,
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "2xl": 48,
+      "3xl": 64
+    },
+    "layout": {
+      "screen_padding": 24,
+      "bottom_tab_height": 80
+    }
+  },
+  "components": {
+    "circular_timer": {
+      "description": "A massive, ultra-smooth SVG circular progress arc driven by react-native-reanimated.",
+      "styles": {
+        "size": 300,
+        "strokeWidth": 12,
+        "trackColor": "#262626",
+        "progressColor": "#0066FF",
+        "glowEffect": "DropShadow on SVG path or layered blurred SVG paths for #00E5FF glow."
+      },
+      "animation": "Use useAnimatedProps for the SVG strokeDashoffset to ensure 60fps. No JS thread blocking."
+    },
+    "button_primary": {
+      "styles": {
+        "backgroundColor": "#0066FF",
+        "height": 56,
+        "borderRadius": 12,
+        "justifyContent": "center",
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 8
+      },
+      "text_style": {
+        "color": "#FFFFFF",
+        "fontSize": 16,
+        "fontWeight": "600",
+        "letterSpacing": 0.5
+      },
+      "active_opacity": 0.8
+    },
+    "button_secondary": {
+      "styles": {
+        "backgroundColor": "transparent",
+        "borderWidth": 1,
+        "borderColor": "#262626",
+        "height": 56,
+        "borderRadius": 12,
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "text_style": {
+        "color": "#FFFFFF",
+        "fontSize": 16,
+        "fontWeight": "500"
+      }
+    },
+    "card": {
+      "styles": {
+        "backgroundColor": "#171717",
+        "borderRadius": 16,
+        "padding": 24,
+        "borderWidth": 1,
+        "borderColor": "#262626"
+      }
+    },
+    "input": {
+      "styles": {
+        "height": 56,
+        "backgroundColor": "#0A0A0A",
+        "borderWidth": 1,
+        "borderColor": "#262626",
+        "borderRadius": 12,
+        "paddingHorizontal": 16,
+        "color": "#FFFFFF",
+        "fontSize": 16
+      },
+      "focus_state": {
+        "borderColor": "#0066FF"
+      }
+    },
+    "bottom_tabs": {
+      "styles": {
+        "backgroundColor": "#0A0A0A",
+        "borderTopWidth": 1,
+        "borderTopColor": "#262626",
+        "height": 80,
+        "paddingBottom": 20,
+        "paddingTop": 12
+      },
+      "active_tint": "#0066FF",
+      "inactive_tint": "#525252"
+    }
+  },
+  "screens": {
+    "Auth": {
+      "layout": "Full screen immersive. Use ImageBackground with absolute positioning.",
+      "elements": [
+        { "name": "Background", "type": "Image", "source": "https://static.prod-images.emergentagent.com/jobs/392f8cce-4ef5-416a-8416-4d2f52b06b76/images/3821690704ff98378afc30e27814e824655e28f45c96bed949be2ec9c43547ef.png", "opacity": 0.6 },
+        { "name": "Title", "type": "Text", "style": "h1", "content": "Deep\\nFocus.", "alignment": "left", "marginTop": "auto" },
+        { "name": "Subtitle", "type": "Text", "style": "body_lg", "content": "Master your time.", "color": "#A3A3A3", "marginBottom": 48 },
+        { "name": "GoogleBtn", "type": "Button", "style": "button_secondary", "icon": "@expo/vector-icons/AntDesign 'google'", "data-testid": "auth-google-button" },
+        { "name": "FacebookBtn", "type": "Button", "style": "button_secondary", "icon": "@expo/vector-icons/AntDesign 'facebook-square'", "data-testid": "auth-facebook-button", "marginTop": 16 }
+      ]
+    },
+    "Timer": {
+      "layout": "Centered massive focal point. Breathing room around the timer.",
+      "elements": [
+        { "name": "TaskChip", "type": "Pressable", "content": "Current Task: Study", "style": "Pill shape, #171717 bg, #0066FF text", "data-testid": "timer-task-chip" },
+        { "name": "MainTimer", "type": "SVG Component", "style": "circular_timer", "data-testid": "timer-progress-arc" },
+        { "name": "TimerText", "type": "Text", "style": "timer_display", "position": "absolute center inside arc", "data-testid": "timer-text-display" },
+        { "name": "ControlsRow", "type": "View", "layout": "row, center, gap 24", "children": [
+            { "name": "Reset", "icon": "Feather 'rotate-ccw'", "data-testid": "timer-reset-button" },
+            { "name": "PlayPause", "style": "Large circular button, #0066FF bg, 72x72", "icon": "Feather 'play/pause'", "data-testid": "timer-play-button" }
+          ]
+        }
+      ]
+    },
+    "Stats": {
+      "layout": "Bento box grid using View flexWrap or fixed widths.",
+      "elements": [
+        { "name": "Header", "type": "Text", "style": "h2", "content": "Performance" },
+        { "name": "Grid", "type": "View", "layout": "row wrap, gap 16", "children": [
+            { "name": "SessionsCard", "style": "card, flex: 1", "title": "Today", "value": "4", "data-testid": "stats-today-value" },
+            { "name": "StreakCard", "style": "card, flex: 1", "title": "Streak", "value": "12 Days", "data-testid": "stats-streak-value" },
+            { "name": "TotalTimeCard", "style": "card, width: 100%", "title": "Focus Time", "value": "2h 45m", "data-testid": "stats-total-time-value" }
+          ]
+        }
+      ]
+    },
+    "History": {
+      "layout": "FlatList with generous spacing.",
+      "elements": [
+        { "name": "Header", "type": "Text", "style": "h2", "content": "History" },
+        { "name": "List", "type": "FlatList", "data-testid": "history-list", "itemLayout": {
+            "style": "row, center vertical, borderBottom #262626, py-16",
+            "children": [
+              { "name": "Date", "style": "body" },
+              { "name": "Label", "style": "label, color #A3A3A3" },
+              { "name": "Duration", "style": "h3, color #0066FF, marginLeft auto" }
+            ]
+          }
+        }
+      ]
+    },
+    "Settings": {
+      "layout": "Grouped list items.",
+      "elements": [
+        { "name": "Header", "type": "Text", "style": "h2", "content": "Settings" },
+        { "name": "Section", "style": "card, p-0", "children": [
+            { "name": "SoundRow", "style": "row, between, p-16, borderBottom #262626", "controls": "Picker/Text", "data-testid": "settings-sound-row" },
+            { "name": "NotificationToggle", "style": "row, between, p-16", "controls": "Switch (trackColor={{true: '#0066FF', false: '#262626'}})", "data-testid": "settings-notification-toggle" },
+            { "name": "ThemeToggle", "style": "row, between, p-16", "controls": "Switch", "data-testid": "settings-theme-toggle" }
+          ]
+        }
+      ]
+    },
+    "CustomTimerModal": {
+      "layout": "Bottom sheet or centered modal, dark overlay (rgba(0,0,0,0.8)).",
+      "elements": [
+        { "name": "Container", "style": "backgroundColor #171717, borderTopRadius 24, p-24" },
+        { "name": "Title", "style": "h3", "content": "Custom Timer" },
+        { "name": "InputRow", "children": [
+            { "name": "FocusTime", "type": "Input", "placeholder": "25", "keyboardType": "numeric", "data-testid": "custom-timer-focus-input" },
+            { "name": "BreakTime", "type": "Input", "placeholder": "5", "keyboardType": "numeric", "data-testid": "custom-timer-break-input" }
+          ]
+        },
+        { "name": "SaveBtn", "style": "button_primary, mt-24", "content": "Start Session", "data-testid": "custom-timer-start-button" }
+      ]
+    }
+  },
+  "media": {
+    "auth_background": "https://static.prod-images.emergentagent.com/jobs/392f8cce-4ef5-416a-8416-4d2f52b06b76/images/3821690704ff98378afc30e27814e824655e28f45c96bed949be2ec9c43547ef.png",
+    "icons": "Strictly use @expo/vector-icons (Feather, AntDesign, Ionicons). Avoid emojis."
+  },
+  "technical_guidelines": {
+    "styling": "Use React Native StyleSheet. Do NOT use Tailwind classes unless NativeWind is installed, which is not requested. Translate all spacing/colors to numeric/hex values.",
+    "animations": "Use react-native-reanimated for the circular timer and screen transitions. Do NOT use standard Animated API for the timer to avoid frame drops.",
+    "navigation": "Use @react-navigation/bottom-tabs for main flow (Timer, Stats, History, Settings) and stack for Auth & Modals.",
+    "test_attributes": "Add data-testid to ALL interactive elements (Pressable, TouchableOpacity, Switch, TextInput).",
+    "file_extensions": "Use .js extensions as requested. No .tsx."
+  }
+}
